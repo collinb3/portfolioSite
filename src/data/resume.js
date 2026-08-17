@@ -135,13 +135,15 @@ export const education = {
   location: 'Abilene, TX',
 }
 
-// Placeholder projects — swap in real sample apps as they're built.
+// Swap in more sample apps here as they're built.
 export const projects = [
   {
-    title: 'Project coming soon',
+    title: 'i18n Translation Manager',
+    status: 'Case study',
     description:
-      'A sample web app showcasing accessible, friction-free UX will live here. Check back soon.',
-    tags: ['React', 'Accessibility'],
-    href: null,
+      'A full-stack translation management platform for organizing multilingual content by project and module. Admins create translation keys, manage locales, and export ready-to-use translation files; client apps pull translations through a simple REST API with automatic fallback to English for missing keys.',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Express', 'Couchbase', 'REST API'],
+    codeHref: 'https://github.com/collinb3/translation-tool',
+    liveHref: null,
   },
 ]
