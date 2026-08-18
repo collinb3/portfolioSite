@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import Experience from './pages/Experience'
 import Projects from './pages/Projects'
 import PoetryApp from './sampleApps/poetry/PoetryApp'
+import BookingApp from './sampleApps/booking/BookingApp'
+import AdminApp from './sampleApps/booking/admin/AdminApp'
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/poetry" element={<PoetryApp />} />
+          <Route path="/booking" element={<BookingApp />} />
+          <Route path="/booking/admin" element={<AdminApp />} />
         </Routes>
       </main>
       <Footer />
