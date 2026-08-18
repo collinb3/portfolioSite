@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react'
 function CarouselControls({ images, index, goTo, size = 'sm' }) {
   if (images.length <= 1) return null
 
-  const btnSize = size === 'lg' ? 'h-10 w-10 text-xl' : 'h-7 w-7'
-  const dotSize = size === 'lg' ? 'h-2 w-2' : 'h-1.5 w-1.5'
+  const btnSize = size === 'lg' ? 'h-11 w-11 text-xl' : 'h-8 w-8'
+  const dotVisual = size === 'lg' ? 'h-2 w-2' : 'h-1.5 w-1.5'
 
   return (
     <>
@@ -33,7 +33,7 @@ function CarouselControls({ images, index, goTo, size = 'sm' }) {
         ›
       </button>
 
-      <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1.5">
+      <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2">
         {images.map((img, i) => (
           <button
             key={img}
@@ -44,10 +44,14 @@ function CarouselControls({ images, index, goTo, size = 'sm' }) {
               goTo(i)
             }}
             aria-label={`Go to screenshot ${i + 1}`}
-            className={`rounded-full transition-colors ${dotSize} ${
-              i === index ? 'bg-white' : 'bg-white/50'
-            }`}
-          />
+            className="flex h-6 w-6 items-center justify-center"
+          >
+            <span
+              className={`block rounded-full transition-colors ${dotVisual} ${
+                i === index ? 'bg-white' : 'bg-white/50'
+              }`}
+            />
+          </button>
         ))}
       </div>
     </>
