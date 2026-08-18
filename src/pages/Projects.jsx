@@ -1,17 +1,13 @@
 import { projects } from '../data/projects'
+import ImageCarousel from '../components/ImageCarousel'
 
 function ProjectCard({ project }) {
+  const images = project.images ?? (project.image ? [project.image] : [])
+
   return (
     <div className="flex h-full flex-col rounded-2xl border border-sage-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-      {project.image ? (
-        <div className="h-40 overflow-hidden rounded-xl border border-sage-100 bg-sage-50">
-          <img
-            src={project.image}
-            alt={`Screenshot of ${project.title}`}
-            className="h-full w-full object-cover object-top"
-            loading="lazy"
-          />
-        </div>
+      {images.length > 0 ? (
+        <ImageCarousel images={images} alt={`Screenshot of ${project.title}`} />
       ) : (
         <div className="flex h-36 items-center justify-center rounded-xl bg-sage-50 text-sage-300">
           <span className="text-sm font-medium">Preview coming soon</span>

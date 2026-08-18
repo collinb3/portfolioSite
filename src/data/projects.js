@@ -7,7 +7,10 @@ export const projects = [
     description:
       'A full-stack translation management platform for organizing multilingual content by project and module. Admins create translation keys, manage locales, and export ready-to-use translation files; client apps pull translations through a simple REST API with automatic fallback to English for missing keys.',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Express', 'Couchbase', 'REST API'],
-    image: '/project-images/translation-tool.png',
+    images: [
+      '/project-images/translation-tool-editor.png',
+      '/project-images/translation-tool-projects.png',
+    ],
     codeHref: 'https://github.com/collinb3/translation-tool',
     liveHref: null,
   },
