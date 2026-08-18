@@ -20,16 +20,16 @@ export const skillGroups = [
     skills: ['Web Accessibility (WCAG)', 'Inclusive Design', 'Accessibility Audits', 'Semantic HTML & ARIA', 'Screen Reader Testing'],
   },
   {
-    title: 'Languages',
-    skills: ['JavaScript', 'Java', 'C++', 'C#', 'Python', 'PHP', 'Lua'],
-  },
-  {
     title: 'Data & Cloud',
     skills: ['PostgreSQL', 'MySQL', 'AWS Lambda', 'AWS S3', 'Node.js'],
   },
   {
     title: 'Quality & Delivery',
     skills: ['Unit Testing (Jest, JUnit)', 'TDD', 'Chrome DevTools', 'CI/CD', 'Agile / Scrum'],
+  },
+  {
+    title: 'Languages',
+    skills: ['JavaScript', 'Java', 'C++', 'C#', 'Python', 'PHP', 'Lua'],
   },
   {
     title: 'Leadership & Collaboration',
