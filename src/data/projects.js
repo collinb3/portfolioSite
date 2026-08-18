@@ -20,6 +20,7 @@ export const projects = [
     description:
       'A React app for searching poetrydb.org by author and/or title, with random-poem discovery, pagination, a detail view, and a dark/light toggle.',
     tags: ['React', 'Tailwind CSS', 'REST API'],
+    image: '/project-images/poetry-explorer.png',
     codeHref: 'https://github.com/collinb3/poetry-web',
     liveHref: '/poetry',
   },
