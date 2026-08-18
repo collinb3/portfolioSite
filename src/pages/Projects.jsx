@@ -1,11 +1,22 @@
-import { projects } from '../data/resume'
+import { projects } from '../data/projects'
 
 function ProjectCard({ project }) {
   return (
     <div className="flex h-full flex-col rounded-2xl border border-sage-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-      <div className="flex h-36 items-center justify-center rounded-xl bg-sage-50 text-sage-300">
-        <span className="text-sm font-medium">Preview coming soon</span>
-      </div>
+      {project.image ? (
+        <div className="h-40 overflow-hidden rounded-xl border border-sage-100 bg-sage-50">
+          <img
+            src={project.image}
+            alt={`Screenshot of ${project.title}`}
+            className="h-full w-full object-cover object-top"
+            loading="lazy"
+          />
+        </div>
+      ) : (
+        <div className="flex h-36 items-center justify-center rounded-xl bg-sage-50 text-sage-300">
+          <span className="text-sm font-medium">Preview coming soon</span>
+        </div>
+      )}
 
       <div className="mt-5 flex items-start justify-between gap-3">
         <h2 className="text-xl font-semibold text-ink-900">{project.title}</h2>
