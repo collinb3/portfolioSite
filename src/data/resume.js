@@ -16,6 +16,10 @@ export const skillGroups = [
     skills: ['React', 'React Native', 'JavaScript', 'HTML & CSS', 'UI/UX Design'],
   },
   {
+    title: 'Accessibility',
+    skills: ['Web Accessibility (WCAG)', 'Inclusive Design', 'Accessibility Audits', 'Semantic HTML & ARIA', 'Screen Reader Testing'],
+  },
+  {
     title: 'Languages',
     skills: ['JavaScript', 'Java', 'C++', 'C#', 'Python', 'PHP', 'Lua'],
   },
