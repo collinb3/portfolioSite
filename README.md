@@ -1,16 +1,39 @@
-# React + Vite
+# Collin Blanchard — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio site for Collin Blanchard, Senior Frontend Engineer. Built to showcase skills, professional experience, and sample projects for job applications and freelance work.
 
-Currently, two official plugins are available:
+Live at [collin-blanchard.com](https://collin-blanchard.com).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- [React](https://react.dev/) + [Vite](https://vite.dev/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [React Router](https://reactrouter.com/)
+- Deployed on [Vercel](https://vercel.com/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Pages
 
-## Expanding the Oxlint configuration
+- **Home** (`/`) — intro, UX/accessibility-focused passion blurb, and a prominent skills breakdown
+- **Projects** (`/projects`) — sample apps and case studies, each linking to a live demo and/or source code
+- **Experience** (`/experience`) — full work history, internships, and education
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Getting started
+
+```bash
+npm install
+npm run dev
+```
+
+Builds for production with:
+
+```bash
+npm run build
+```
+
+## Content
+
+Resume-derived content (skills, experience, projects, etc.) lives in `src/data/resume.js` — update that file to change what's displayed rather than editing the page components directly.
+
+## Deployment notes
+
+`vercel.json` includes a SPA rewrite so client-side routes (`/projects`, `/experience`) resolve correctly on direct navigation and page refresh, not just in-app links.
