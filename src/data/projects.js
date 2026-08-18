@@ -14,4 +14,13 @@ export const projects = [
     codeHref: 'https://github.com/collinb3/translation-tool',
     liveHref: null,
   },
+  {
+    title: 'Poetry Explorer',
+    status: 'Live demo',
+    description:
+      'A React app for searching poetrydb.org by author and/or title, with random-poem discovery, pagination, a detail view, and a dark/light toggle.',
+    tags: ['React', 'Tailwind CSS', 'REST API'],
+    codeHref: 'https://github.com/collinb3/poetry-web',
+    liveHref: '/poetry',
+  },
 ]
