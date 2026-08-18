@@ -25,11 +25,11 @@ export const skillGroups = [
   },
   {
     title: 'Quality & Delivery',
-    skills: ['Unit Testing (Jest, JUnit)', 'TDD', 'Chrome DevTools', 'CI/CD', 'Agile / Scrum'],
+    skills: ['Unit Testing (Jest, JUnit)', 'TDD', 'CI/CD', 'Agile / Scrum'],
   },
   {
-    title: 'Languages',
-    skills: ['JavaScript', 'Java', 'C++', 'C#', 'Python', 'PHP', 'Lua'],
+    title: 'Languages & Tools',
+    skills: ['JavaScript', 'Java', 'C++', 'C#', 'Python', 'PHP', 'Lua', 'Claude', 'Chrome DevTools', 'Axe Accessibility', 'Figma'],
   },
   {
     title: 'Leadership & Collaboration',
