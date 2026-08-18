@@ -6,7 +6,7 @@ export const profile = {
   phone: '(719) 822-4756',
   linkedin: 'https://www.linkedin.com/in/collin-blanchard/',
   blurb:
-    "I'm passionate about UX and accessibility - building interfaces that empower people to do what they need to do with minimal friction. I care as much about the experience of the person clicking the button as I do about the code behind it.",
+    "I'm passionate about UX and accessibility — building interfaces that empower people to do what they need to do with minimal friction. I care as much about the experience of the person clicking the button as I do about the code behind it.",
 }
 
 // Skills grouped for the prominent home page display.
@@ -17,7 +17,7 @@ export const skillGroups = [
   },
   {
     title: 'Languages',
-    skills: ['JavaScript', 'Java', 'C++', 'C#', 'Python', 'PHP'],
+    skills: ['JavaScript', 'Java', 'C++', 'C#', 'Python', 'PHP', 'Lua'],
   },
   {
     title: 'Data & Cloud',
@@ -134,16 +134,3 @@ export const education = {
   school: 'Abilene Christian University',
   location: 'Abilene, TX',
 }
-
-// Swap in more sample apps here as they're built.
-export const projects = [
-  {
-    title: 'i18n Translation Manager',
-    status: 'Case study',
-    description:
-      'A full-stack translation management platform for organizing multilingual content by project and module. Admins create translation keys, manage locales, and export ready-to-use translation files; client apps pull translations through a simple REST API with automatic fallback to English for missing keys.',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Express', 'Couchbase', 'REST API'],
-    codeHref: 'https://github.com/collinb3/translation-tool',
-    liveHref: null,
-  },
-]

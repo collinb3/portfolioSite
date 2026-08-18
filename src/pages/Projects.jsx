@@ -1,11 +1,18 @@
-import { projects } from '../data/resume'
+import { projects } from '../data/projects'
+import ImageCarousel from '../components/ImageCarousel'
 
 function ProjectCard({ project }) {
+  const images = project.images ?? (project.image ? [project.image] : [])
+
   return (
     <div className="flex h-full flex-col rounded-2xl border border-sage-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-      <div className="flex h-36 items-center justify-center rounded-xl bg-sage-50 text-sage-300">
-        <span className="text-sm font-medium">Preview coming soon</span>
-      </div>
+      {images.length > 0 ? (
+        <ImageCarousel images={images} alt={`Screenshot of ${project.title}`} />
+      ) : (
+        <div className="flex h-36 items-center justify-center rounded-xl bg-sage-50 text-sage-300">
+          <span className="text-sm font-medium">Preview coming soon</span>
+        </div>
+      )}
 
       <div className="mt-5 flex items-start justify-between gap-3">
         <h2 className="text-xl font-semibold text-ink-900">{project.title}</h2>
