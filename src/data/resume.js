@@ -4,9 +4,9 @@ export const profile = {
   location: 'Colorado Springs, CO',
   email: 'collinb.three@icloud.com',
   phone: '(719) 822-4756',
-  linkedin: 'https://linkedin.com',
+  linkedin: 'https://www.linkedin.com/in/collin-blanchard/',
   blurb:
-    "I'm passionate about UX and accessibility — building interfaces that empower people to do what they need to do with minimal friction. I care as much about the experience of the person clicking the button as I do about the code behind it.",
+    "I'm passionate about UX and accessibility - building interfaces that empower people to do what they need to do with minimal friction. I care as much about the experience of the person clicking the button as I do about the code behind it.",
 }
 
 // Skills grouped for the prominent home page display.
@@ -17,7 +17,7 @@ export const skillGroups = [
   },
   {
     title: 'Languages',
-    skills: ['JavaScript', 'Java', 'C++', 'C#', 'Python', 'PHP', 'Lua'],
+    skills: ['JavaScript', 'Java', 'C++', 'C#', 'Python', 'PHP'],
   },
   {
     title: 'Data & Cloud',
