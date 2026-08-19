@@ -33,7 +33,7 @@ export const skillGroups = [
   },
   {
     title: 'Leadership & Collaboration',
-    skills: ['Mentorship & Technical Training', 'Cross-functional Collaboration', 'Jira', 'Confluence'],
+    skills: ['Mentorship & Technical Training', 'Cross-functional Collaboration', 'Slack', 'Jira', 'Confluence'],
   },
 ]
 
