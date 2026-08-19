@@ -1,20 +1,33 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-export default function ContactStep({ onBack, onSubmit, submitting, submitError }) {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [notes, setNotes] = useState('')
-  const [touched, setTouched] = useState(false)
+export default function ContactStep({
+  onBack,
+  onSubmit,
+  submitting,
+  submitError,
+}) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [notes, setNotes] = useState("");
+  const [touched, setTouched] = useState(false);
 
-  const nameError = touched && !name.trim() ? 'Please enter your name.' : null
-  const emailError = touched && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? 'Please enter a valid email.' : null
+  const nameError = touched && !name.trim() ? "Please enter your name." : null;
+  const emailError =
+    touched && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+      ? "Please enter a valid email."
+      : null;
 
   function handleSubmit(e) {
-    e.preventDefault()
-    setTouched(true)
-    if (!name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return
-    onSubmit({ customer_name: name.trim(), customer_email: email.trim(), customer_phone: phone.trim() || null, notes: notes.trim() || null })
+    e.preventDefault();
+    setTouched(true);
+    if (!name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+    onSubmit({
+      customer_name: name.trim(),
+      customer_email: email.trim(),
+      customer_phone: phone.trim() || null,
+      notes: notes.trim() || null,
+    });
   }
 
   return (
@@ -23,7 +36,10 @@ export default function ContactStep({ onBack, onSubmit, submitting, submitError 
 
       <div className="mt-4 grid gap-4">
         <div>
-          <label htmlFor="booking-name" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="booking-name"
+            className="block text-sm font-medium text-gray-700"
+          >
             Full name
           </label>
           <input
@@ -32,7 +48,7 @@ export default function ContactStep({ onBack, onSubmit, submitting, submitError 
             value={name}
             onChange={(e) => setName(e.target.value)}
             aria-invalid={!!nameError}
-            aria-describedby={nameError ? 'booking-name-error' : undefined}
+            aria-describedby={nameError ? "booking-name-error" : undefined}
             className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none focus:ring-1 focus:ring-teal-600"
           />
           {nameError && (
@@ -43,7 +59,10 @@ export default function ContactStep({ onBack, onSubmit, submitting, submitError 
         </div>
 
         <div>
-          <label htmlFor="booking-email" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="booking-email"
+            className="block text-sm font-medium text-gray-700"
+          >
             Email
           </label>
           <input
@@ -52,7 +71,7 @@ export default function ContactStep({ onBack, onSubmit, submitting, submitError 
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             aria-invalid={!!emailError}
-            aria-describedby={emailError ? 'booking-email-error' : undefined}
+            aria-describedby={emailError ? "booking-email-error" : undefined}
             className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none focus:ring-1 focus:ring-teal-600"
           />
           {emailError && (
@@ -63,8 +82,11 @@ export default function ContactStep({ onBack, onSubmit, submitting, submitError 
         </div>
 
         <div>
-          <label htmlFor="booking-phone" className="block text-sm font-medium text-gray-700">
-            Phone <span className="font-normal text-gray-400">(optional)</span>
+          <label
+            htmlFor="booking-phone"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Phone <span className="font-normal text-gray-500">(optional)</span>
           </label>
           <input
             id="booking-phone"
@@ -76,8 +98,11 @@ export default function ContactStep({ onBack, onSubmit, submitting, submitError 
         </div>
 
         <div>
-          <label htmlFor="booking-notes" className="block text-sm font-medium text-gray-700">
-            Notes <span className="font-normal text-gray-400">(optional)</span>
+          <label
+            htmlFor="booking-notes"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Notes <span className="font-normal text-gray-500">(optional)</span>
           </label>
           <textarea
             id="booking-notes"
@@ -108,9 +133,9 @@ export default function ContactStep({ onBack, onSubmit, submitting, submitError 
           disabled={submitting}
           className="rounded-lg bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {submitting ? 'Booking…' : 'Confirm booking'}
+          {submitting ? "Booking…" : "Confirm booking"}
         </button>
       </div>
     </form>
-  )
+  );
 }
