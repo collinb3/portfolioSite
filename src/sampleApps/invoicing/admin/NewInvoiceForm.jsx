@@ -1,49 +1,60 @@
-import { useState } from 'react'
-import { adminCreateClient, adminCreateInvoice } from '../services/api.js'
+import { useState } from "react";
+import { adminCreateClient, adminCreateInvoice } from "../services/api.js";
 
-const emptyLineItem = { description: '', quantity: 1, unit_price_cents: 0 }
+const emptyLineItem = { description: "", quantity: 1, unit_price_cents: 0 };
 
 export default function NewInvoiceForm({ clients, adminPassword, onCreated }) {
-  const [clientId, setClientId] = useState('')
-  const [showNewClient, setShowNewClient] = useState(clients.length === 0)
-  const [newClientName, setNewClientName] = useState('')
-  const [newClientEmail, setNewClientEmail] = useState('')
-  const [dueDate, setDueDate] = useState('')
-  const [notes, setNotes] = useState('')
-  const [lineItems, setLineItems] = useState([{ ...emptyLineItem }])
-  const [saving, setSaving] = useState(false)
-  const [error, setError] = useState(null)
+  const [clientId, setClientId] = useState("");
+  const [showNewClient, setShowNewClient] = useState(clients.length === 0);
+  const [newClientName, setNewClientName] = useState("");
+  const [newClientEmail, setNewClientEmail] = useState("");
+  const [dueDate, setDueDate] = useState("");
+  const [notes, setNotes] = useState("");
+  const [lineItems, setLineItems] = useState([{ ...emptyLineItem }]);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState(null);
 
   function updateLineItem(index, patch) {
-    setLineItems((items) => items.map((item, i) => (i === index ? { ...item, ...patch } : item)))
+    setLineItems((items) =>
+      items.map((item, i) => (i === index ? { ...item, ...patch } : item)),
+    );
   }
 
   function addLineItem() {
-    setLineItems((items) => [...items, { ...emptyLineItem }])
+    setLineItems((items) => [...items, { ...emptyLineItem }]);
   }
 
   function removeLineItem(index) {
-    setLineItems((items) => items.filter((_, i) => i !== index))
+    setLineItems((items) => items.filter((_, i) => i !== index));
   }
 
   async function handleSubmit(e) {
-    e.preventDefault()
-    setSaving(true)
-    setError(null)
+    e.preventDefault();
+    setSaving(true);
+    setError(null);
     try {
-      let resolvedClientId = clientId
+      let resolvedClientId = clientId;
 
       if (showNewClient) {
         if (!newClientName.trim() || !newClientEmail.trim()) {
-          throw new Error('New client needs a name and email.')
+          throw new Error("New client needs a name and email.");
         }
-        const client = await adminCreateClient({ name: newClientName.trim(), email: newClientEmail.trim() }, adminPassword)
-        resolvedClientId = client.id
+        const client = await adminCreateClient(
+          { name: newClientName.trim(), email: newClientEmail.trim() },
+          adminPassword,
+        );
+        resolvedClientId = client.id;
       }
 
-      if (!resolvedClientId) throw new Error('Choose or add a client.')
-      if (lineItems.some((item) => !item.description.trim() || Number(item.quantity) <= 0)) {
-        throw new Error('Every line item needs a description and a quantity greater than 0.')
+      if (!resolvedClientId) throw new Error("Choose or add a client.");
+      if (
+        lineItems.some(
+          (item) => !item.description.trim() || Number(item.quantity) <= 0,
+        )
+      ) {
+        throw new Error(
+          "Every line item needs a description and a quantity greater than 0.",
+        );
       }
 
       await adminCreateInvoice(
@@ -54,36 +65,44 @@ export default function NewInvoiceForm({ clients, adminPassword, onCreated }) {
           line_items: lineItems.map((item) => ({
             description: item.description.trim(),
             quantity: Number(item.quantity),
-            unit_price_cents: Math.round(Number(item.unit_price_cents) * 100 || 0),
+            unit_price_cents: Math.round(
+              Number(item.unit_price_cents) * 100 || 0,
+            ),
           })),
         },
         adminPassword,
-      )
+      );
 
-      setClientId('')
-      setShowNewClient(false)
-      setNewClientName('')
-      setNewClientEmail('')
-      setDueDate('')
-      setNotes('')
-      setLineItems([{ ...emptyLineItem }])
-      onCreated()
+      setClientId("");
+      setShowNewClient(false);
+      setNewClientName("");
+      setNewClientEmail("");
+      setDueDate("");
+      setNotes("");
+      setLineItems([{ ...emptyLineItem }]);
+      onCreated();
     } catch (err) {
-      setError(err.message)
+      setError(err.message);
     } finally {
-      setSaving(false)
+      setSaving(false);
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-6 rounded-2xl bg-white p-4 shadow-sm sm:p-6">
+    <form
+      onSubmit={handleSubmit}
+      className="mt-6 rounded-2xl bg-white p-4 shadow-sm sm:p-6"
+    >
       <h3 className="text-sm font-semibold text-gray-900">New invoice</h3>
 
       <div className="mt-3">
         {!showNewClient ? (
           <div className="flex items-end gap-3">
             <div className="flex-1">
-              <label htmlFor="invoice-client" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="invoice-client"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Client
               </label>
               <select
@@ -100,34 +119,42 @@ export default function NewInvoiceForm({ clients, adminPassword, onCreated }) {
                 ))}
               </select>
             </div>
-            <button type="button" onClick={() => setShowNewClient(true)} className="pb-2 text-sm font-medium text-teal-700 hover:text-teal-800">
+            <button
+              type="button"
+              onClick={() => setShowNewClient(true)}
+              className="pb-2 text-sm font-medium text-teal-700 hover:text-teal-800"
+            >
               + New client
             </button>
           </div>
         ) : (
-          <div className="grid gap-3 sm:grid-cols-2">
-            <input
-              aria-label="New client name"
-              placeholder="Client name"
-              value={newClientName}
-              onChange={(e) => setNewClientName(e.target.value)}
-              className="rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none focus:ring-1 focus:ring-teal-600"
-            />
-            <div className="flex gap-2">
+          <div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <input
+                aria-label="New client name"
+                placeholder="Client name"
+                value={newClientName}
+                onChange={(e) => setNewClientName(e.target.value)}
+                className="rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none focus:ring-1 focus:ring-teal-600"
+              />
               <input
                 aria-label="New client email"
                 type="email"
                 placeholder="Client email"
                 value={newClientEmail}
                 onChange={(e) => setNewClientEmail(e.target.value)}
-                className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none focus:ring-1 focus:ring-teal-600"
+                className="rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none focus:ring-1 focus:ring-teal-600"
               />
-              {clients.length > 0 && (
-                <button type="button" onClick={() => setShowNewClient(false)} className="whitespace-nowrap text-sm font-medium text-gray-500 hover:text-gray-700">
-                  Use existing
-                </button>
-              )}
             </div>
+            {clients.length > 0 && (
+              <button
+                type="button"
+                onClick={() => setShowNewClient(false)}
+                className="mt-2 text-sm font-medium text-gray-500 hover:text-gray-700"
+              >
+                Use an existing client instead
+              </button>
+            )}
           </div>
         )}
       </div>
@@ -141,7 +168,9 @@ export default function NewInvoiceForm({ clients, adminPassword, onCreated }) {
                 aria-label={`Line item ${i + 1} description`}
                 placeholder="Description"
                 value={item.description}
-                onChange={(e) => updateLineItem(i, { description: e.target.value })}
+                onChange={(e) =>
+                  updateLineItem(i, { description: e.target.value })
+                }
                 className="min-w-[160px] flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none focus:ring-1 focus:ring-teal-600"
               />
               <input
@@ -150,7 +179,9 @@ export default function NewInvoiceForm({ clients, adminPassword, onCreated }) {
                 min="1"
                 step="1"
                 value={item.quantity}
-                onChange={(e) => updateLineItem(i, { quantity: e.target.value })}
+                onChange={(e) =>
+                  updateLineItem(i, { quantity: e.target.value })
+                }
                 className="w-20 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none focus:ring-1 focus:ring-teal-600"
               />
               <input
@@ -160,7 +191,9 @@ export default function NewInvoiceForm({ clients, adminPassword, onCreated }) {
                 step="0.01"
                 placeholder="Price ($)"
                 value={item.unit_price_cents}
-                onChange={(e) => updateLineItem(i, { unit_price_cents: e.target.value })}
+                onChange={(e) =>
+                  updateLineItem(i, { unit_price_cents: e.target.value })
+                }
                 className="w-28 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none focus:ring-1 focus:ring-teal-600"
               />
               {lineItems.length > 1 && (
@@ -176,15 +209,23 @@ export default function NewInvoiceForm({ clients, adminPassword, onCreated }) {
             </div>
           ))}
         </div>
-        <button type="button" onClick={addLineItem} className="mt-2 text-sm font-medium text-teal-700 hover:text-teal-800">
+        <button
+          type="button"
+          onClick={addLineItem}
+          className="mt-2 text-sm font-medium text-teal-700 hover:text-teal-800"
+        >
           + Add line item
         </button>
       </div>
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <div>
-          <label htmlFor="invoice-due-date" className="block text-sm font-medium text-gray-700">
-            Due date <span className="font-normal text-gray-400">(optional)</span>
+          <label
+            htmlFor="invoice-due-date"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Due date{" "}
+            <span className="font-normal text-gray-500">(optional)</span>
           </label>
           <input
             id="invoice-due-date"
@@ -195,8 +236,11 @@ export default function NewInvoiceForm({ clients, adminPassword, onCreated }) {
           />
         </div>
         <div>
-          <label htmlFor="invoice-notes" className="block text-sm font-medium text-gray-700">
-            Notes <span className="font-normal text-gray-400">(optional)</span>
+          <label
+            htmlFor="invoice-notes"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Notes <span className="font-normal text-gray-500">(optional)</span>
           </label>
           <input
             id="invoice-notes"
@@ -218,8 +262,8 @@ export default function NewInvoiceForm({ clients, adminPassword, onCreated }) {
         disabled={saving}
         className="mt-4 rounded-lg bg-teal-600 px-4 py-2 text-sm font-medium text-white hover:bg-teal-700 disabled:opacity-50"
       >
-        {saving ? 'Creating…' : 'Create invoice'}
+        {saving ? "Creating…" : "Create invoice"}
       </button>
     </form>
-  )
+  );
 }
