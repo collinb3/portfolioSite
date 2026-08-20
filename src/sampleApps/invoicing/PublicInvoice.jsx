@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getPublicInvoice } from './services/api.js'
 import { downloadInvoicePdf } from './utils/pdf.js'
-import { formatCents, lineItemTotalCents, invoiceTotalCents } from './utils/money.js'
+import { formatCents, lineItemTotalCents, invoiceTotalCents, formatDate } from './utils/money.js'
 
 const STATUS_STYLES = {
   draft: 'bg-gray-100 text-gray-600',
@@ -60,12 +60,12 @@ export default function PublicInvoice() {
               </div>
               <div>
                 <dt className="text-gray-500">Issue date</dt>
-                <dd className="font-medium text-gray-900">{invoice.issue_date}</dd>
+                <dd className="font-medium text-gray-900">{formatDate(invoice.issue_date)}</dd>
               </div>
               {invoice.due_date && (
                 <div>
                   <dt className="text-gray-500">Due date</dt>
-                  <dd className="font-medium text-gray-900">{invoice.due_date}</dd>
+                  <dd className="font-medium text-gray-900">{formatDate(invoice.due_date)}</dd>
                 </div>
               )}
             </dl>

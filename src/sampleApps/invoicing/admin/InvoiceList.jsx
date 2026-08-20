@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { adminUpdateInvoiceStatus } from '../services/api.js'
-import { formatCents, invoiceTotalCents } from '../utils/money.js'
+import { formatCents, invoiceTotalCents, formatDate } from '../utils/money.js'
 
 const STATUS_STYLES = {
   draft: 'bg-gray-100 text-gray-600',
@@ -47,7 +47,7 @@ export default function InvoiceList({ invoices, adminPassword, onChanged }) {
                 </p>
                 <p className="text-sm text-gray-500">
                   {formatCents(invoiceTotalCents(inv.line_items))}
-                  {inv.due_date ? ` · due ${inv.due_date}` : ''}
+                  {inv.due_date ? ` · due ${formatDate(inv.due_date)}` : ''}
                 </p>
               </div>
               <div className="flex items-center gap-2">

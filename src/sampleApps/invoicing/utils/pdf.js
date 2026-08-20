@@ -1,4 +1,4 @@
-import { formatCents, lineItemTotalCents, invoiceTotalCents } from './money.js'
+import { formatCents, lineItemTotalCents, invoiceTotalCents, formatDate } from './money.js'
 
 // Generates and triggers a browser download of the invoice as a real PDF file.
 // jspdf (+ its jspdf-autotable plugin) is a fairly hefty dependency, so it's
@@ -25,8 +25,8 @@ export async function downloadInvoicePdf(invoice) {
   doc.setFontSize(10)
   doc.setFont('helvetica', 'normal')
   doc.text(`Bill to: ${invoice.client_name} (${invoice.client_email})`, 40, 120)
-  doc.text(`Issue date: ${invoice.issue_date}`, 40, 136)
-  if (invoice.due_date) doc.text(`Due date: ${invoice.due_date}`, 40, 152)
+  doc.text(`Issue date: ${formatDate(invoice.issue_date)}`, 40, 136)
+  if (invoice.due_date) doc.text(`Due date: ${formatDate(invoice.due_date)}`, 40, 152)
   doc.text(`Status: ${invoice.status}`, 40, 168)
 
   autoTable(doc, {
