@@ -34,4 +34,13 @@ export const projects = [
     codeHref: 'https://github.com/collinb3/portfolioSite/tree/main/src/sampleApps/booking',
     liveHref: '/booking',
   },
+  {
+    title: 'Invoicing & Quotes',
+    status: 'Live demo',
+    description:
+      'A freelancer-focused invoicing tool: build an itemized invoice, send the client a shareable link (no login required on their end), and track paid/unpaid status from a lightweight admin dashboard. Clients can download a real, formatted PDF of their invoice in one click.',
+    tags: ['React', 'Tailwind CSS', 'Vercel Functions', 'Postgres (Neon)', 'PDF generation'],
+    codeHref: 'https://github.com/collinb3/portfolioSite/tree/main/src/sampleApps/invoicing',
+    liveHref: '/invoicing/demo',
+  },
 ]
