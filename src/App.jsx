@@ -7,6 +7,8 @@ import Projects from './pages/Projects'
 import PoetryApp from './sampleApps/poetry/PoetryApp'
 import BookingApp from './sampleApps/booking/BookingApp'
 import AdminApp from './sampleApps/booking/admin/AdminApp'
+import PublicInvoice from './sampleApps/invoicing/PublicInvoice'
+import InvoicingAdminApp from './sampleApps/invoicing/admin/InvoicingAdminApp'
 
 export default function App() {
   return (
@@ -20,6 +22,8 @@ export default function App() {
           <Route path="/poetry" element={<PoetryApp />} />
           <Route path="/booking" element={<BookingApp />} />
           <Route path="/booking/admin" element={<AdminApp />} />
+          <Route path="/invoicing/admin" element={<InvoicingAdminApp />} />
+          <Route path="/invoicing/:token" element={<PublicInvoice />} />
         </Routes>
       </main>
       <Footer />
