@@ -28,7 +28,7 @@ export const projects = [
     title: 'Service Booking System',
     status: 'Live demo',
     description:
-      'A full-stack appointment booking system built for local service businesses — customers pick a service and open time slot and book instantly, while the owner manages bookings and services from a lightweight, password-protected admin dashboard. Backed by a real serverless Postgres database, not mock data.',
+      'A full-stack appointment booking system built for local service businesses - customers pick a service and open time slot and book instantly, while the owner manages bookings and services from a lightweight, password-protected admin dashboard. Backed by a real serverless Postgres database, not mock data.',
     tags: ['React', 'Tailwind CSS', 'Vercel Functions', 'Postgres (Neon)', 'REST API'],
     image: '/project-images/booking-services.png',
     codeHref: 'https://github.com/collinb3/portfolioSite/tree/main/src/sampleApps/booking',

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { profile, skillGroups } from '../data/resume'
 import ResumeModal from '../components/ResumeModal'
+import headshot from '../assets/headshot.jpg'
 
 export default function About() {
   const [resumeOpen, setResumeOpen] = useState(false)
@@ -11,10 +12,11 @@ export default function About() {
       <h1 className="text-4xl font-bold tracking-tight text-ink-900">The person behind the studio</h1>
 
       <div className="mt-10 flex flex-col gap-8 sm:flex-row sm:items-start">
-        {/* Photo placeholder — swap for a real headshot when available */}
-        <div className="flex h-40 w-40 shrink-0 items-center justify-center rounded-full bg-sage-100 text-4xl font-bold text-sage-500">
-          CB
-        </div>
+        <img
+          src={headshot}
+          alt={profile.name}
+          className="h-40 w-40 shrink-0 rounded-full object-cover shadow-sm"
+        />
 
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-ink-900">{profile.name}</h2>

@@ -15,8 +15,8 @@ export default function Home() {
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-700">
           Fox Hollow Studio designs and builds fast, accessible websites and
-          custom web applications — from marketing sites to full booking and
-          invoicing systems — for small businesses and teams who need more than
+          custom web applications - from marketing sites to full booking and
+          invoicing systems - for small businesses and teams who need more than
           a template.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
@@ -42,7 +42,7 @@ export default function Home() {
             What we build
           </h2>
           <p className="mt-2 max-w-3xl text-ink-700">
-            Real, working software — not just static pages — tailored to what
+            Real, working software - not just static pages - tailored to what
             your business actually needs.
           </p>
 
