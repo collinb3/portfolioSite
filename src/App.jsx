@@ -1,8 +1,8 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
-import Experience from './pages/Experience'
+import About from './pages/About'
 import Projects from './pages/Projects'
 import PoetryApp from './sampleApps/poetry/PoetryApp'
 import BookingApp from './sampleApps/booking/BookingApp'
@@ -18,7 +18,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/experience" element={<Experience />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/experience" element={<Navigate to="/about" replace />} />
           <Route path="/poetry" element={<PoetryApp />} />
           <Route path="/booking" element={<BookingApp />} />
           <Route path="/booking/admin" element={<AdminApp />} />

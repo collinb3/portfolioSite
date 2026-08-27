@@ -1,12 +1,14 @@
 export const profile = {
   name: 'Collin Blanchard',
   title: 'Senior Frontend Engineer',
+  company: 'Fox Hollow Studio',
+  companyTagline: 'Web Development & Design',
   location: 'Colorado Springs, CO',
   email: 'hello@foxhollowstudio.dev',
   phone: '(719) 822-4756',
   linkedin: 'https://www.linkedin.com/in/collin-blanchard/',
   blurb:
-    "I'm passionate about UX and accessibility — building interfaces that empower people to do what they need to do with minimal friction. I care as much about the experience of the person clicking the button as I do about the code behind it.",
+    "I'm passionate about UX and accessibility - building interfaces that empower people to do what they need to do with minimal friction. That's the same care I bring to Fox Hollow Studio, the freelance practice I run building sites and web apps for small businesses and teams. I care as much about the experience of the person clicking the button as I do about the code behind it.",
 }
 
 // Skills grouped for the prominent home page display.
