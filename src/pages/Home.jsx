@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
-import { profile, services } from '../data/resume'
+import { Link } from "react-router-dom";
+import { profile } from "../data/resume";
+import { services } from "../data/foxHollowServices";
 
 export default function Home() {
   return (
@@ -13,9 +14,10 @@ export default function Home() {
           Websites and web apps built for how small businesses actually work.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-700">
-          Fox Hollow Studio designs and builds fast, accessible websites and custom web
-          applications — from marketing sites to full booking and invoicing systems — for small
-          businesses and teams who need more than a template.
+          Fox Hollow Studio designs and builds fast, accessible websites and
+          custom web applications — from marketing sites to full booking and
+          invoicing systems — for small businesses and teams who need more than
+          a template.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
@@ -36,10 +38,12 @@ export default function Home() {
       {/* Services */}
       <section className="border-t border-sage-200 bg-sage-50">
         <div className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl">What we build</h2>
+          <h2 className="text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl">
+            What we build
+          </h2>
           <p className="mt-2 max-w-2xl text-ink-700">
-            Real, working software — not just static pages — tailored to what your business
-            actually needs.
+            Real, working software — not just static pages — tailored to what
+            your business actually needs.
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -48,8 +52,12 @@ export default function Home() {
                 key={service.title}
                 className="rounded-2xl border border-sage-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
               >
-                <h3 className="text-lg font-semibold text-ink-900">{service.title}</h3>
-                <p className="mt-2 leading-relaxed text-ink-700">{service.description}</p>
+                <h3 className="text-lg font-semibold text-ink-900">
+                  {service.title}
+                </h3>
+                <p className="mt-2 leading-relaxed text-ink-700">
+                  {service.description}
+                </p>
               </div>
             ))}
           </div>
@@ -62,7 +70,8 @@ export default function Home() {
           Have a project in mind?
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-ink-700">
-          Take a look at our work, or reach out and tell us what you're trying to build.
+          Take a look at our work, or reach out and tell us what you're trying
+          to build.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a
@@ -80,5 +89,5 @@ export default function Home() {
         </div>
       </section>
     </div>
-  )
+  );
 }
