@@ -10,10 +10,10 @@ export default function Home() {
         <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-sage-600">
           {profile.company}
         </p>
-        <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl">
+        <h1 className="max-w-4xl text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl">
           Websites and web apps built for how small businesses actually work.
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-700">
+        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-700">
           Fox Hollow Studio designs and builds fast, accessible websites and
           custom web applications — from marketing sites to full booking and
           invoicing systems — for small businesses and teams who need more than
@@ -38,10 +38,10 @@ export default function Home() {
       {/* Services */}
       <section className="border-t border-sage-200 bg-sage-50">
         <div className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl">
+          <h2 className="text-4xl font-bold tracking-tight text-ink-900 sm:text-3xl">
             What we build
           </h2>
-          <p className="mt-2 max-w-2xl text-ink-700">
+          <p className="mt-2 max-w-3xl text-ink-700">
             Real, working software — not just static pages — tailored to what
             your business actually needs.
           </p>
