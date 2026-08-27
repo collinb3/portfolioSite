@@ -2,7 +2,7 @@ export const profile = {
   name: 'Collin Blanchard',
   title: 'Senior Frontend Engineer',
   location: 'Colorado Springs, CO',
-  email: 'collinb.three@icloud.com',
+  email: 'hello@foxhollowstudio.dev',
   phone: '(719) 822-4756',
   linkedin: 'https://www.linkedin.com/in/collin-blanchard/',
   blurb:
@@ -16,8 +16,8 @@ export const skillGroups = [
     skills: ['React', 'React Native', 'JavaScript', 'HTML & CSS', 'UI/UX Design'],
   },
   {
-    title: 'Accessibility',
-    skills: ['Web Accessibility (WCAG)', 'Inclusive Design', 'Accessibility Audits', 'Semantic HTML & ARIA', 'Screen Reader Testing'],
+    title: 'Languages',
+    skills: ['JavaScript', 'Java', 'C++', 'C#', 'Python', 'PHP', 'Lua'],
   },
   {
     title: 'Data & Cloud',
@@ -25,15 +25,15 @@ export const skillGroups = [
   },
   {
     title: 'Quality & Delivery',
-    skills: ['Unit Testing (Jest, JUnit)', 'TDD', 'CI/CD', 'Agile / Scrum'],
-  },
-  {
-    title: 'Languages & Tools',
-    skills: ['JavaScript', 'Java', 'C++', 'C#', 'Python', 'PHP', 'Lua', 'Claude', 'Chrome DevTools', 'Axe Accessibility', 'Figma'],
+    skills: ['Unit Testing (Jest, JUnit)', 'TDD', 'Chrome DevTools', 'CI/CD', 'Agile / Scrum'],
   },
   {
     title: 'Leadership & Collaboration',
-    skills: ['Mentorship & Technical Training', 'Cross-functional Collaboration', 'Slack', 'Jira', 'Confluence'],
+    skills: ['Mentorship & Technical Training', 'Cross-functional Collaboration', 'Jira', 'Confluence'],
+  },
+  {
+    title: 'Accessibility',
+    skills: ['Web Accessibility (WCAG)', 'Inclusive Design', 'Accessibility Audits', 'Semantic HTML & ARIA', 'Screen Reader Testing'],
   },
 ]
 
